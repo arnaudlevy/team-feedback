@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def me
     @user = current_user
+    @indicators = Indicator.all
   end
 
   def edit_me

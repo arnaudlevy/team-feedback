@@ -4,6 +4,7 @@ TeamFeedback::Application.routes.draw do
   post 'logout' => 'user_sessions#destroy', as: :logout
   get 'me' => 'users#me', as: :me
   get 'me/edit' => 'users#edit_me', as: :edit_me
+  put 'log/:indicator_id/:value' => 'log#value', as: :log
   resources :indicators
   resources :users
   resources :teams

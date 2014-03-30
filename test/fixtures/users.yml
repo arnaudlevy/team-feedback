@@ -13,6 +13,10 @@
 #  reset_password_token            :string(255)
 #  reset_password_token_expires_at :datetime
 #  reset_password_email_sent_at    :datetime
+#  team_id                         :integer
+#  firstname                       :string(255)
+#  lastname                        :string(255)
+#  admin                           :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

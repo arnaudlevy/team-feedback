@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TeamFeedback</title>
+  <title>Team Feedback</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <nav>
-    <ul>
-      <% if current_user %>
-        <li><%= link_to 'Home', root_path %></li>
-        <% if current_user.admin? %>
-          <li><%= link_to 'Users', users_path %></li>
-          <li><%= link_to 'Teams', teams_path %></li>
-          <li><%= link_to 'Indicators', indicators_path %></li>
+  <header>
+    <h1>Team Feedback</h1>
+    <nav>
+      <ul>
+        <% if current_user %>
+          <li><%= link_to 'Home', root_path %></li>
+          <% if current_user.admin? %>
+            <li><%= link_to 'Users', users_path %></li>
+            <li><%= link_to 'Teams', teams_path %></li>
+            <li><%= link_to 'Indicators', indicators_path %></li>
+          <% end %>
+          <li><%= link_to 'My profile', :edit_me %></li>
+          <li><%= link_to 'Logout', :logout, method: :post, data: { confirm: 'Are you sure?' } %></li>
+        <% else %>
+          <li><%= link_to "Register", new_user_path %></li>
+          <li><%= link_to "Login", :login %></li>
         <% end %>
-        <li><%= link_to 'My profile', :edit_me %></li>
-        <li><%= link_to 'Logout', :logout, method: :post %></li>
-      <% else %>
-        <li><%= link_to "Register", new_user_path %></li>
-        <li><%= link_to "Login", :login %></li>
-      <% end %>
-    </ul>
-  </nav>
+      </ul>
+    </nav>
+  </header>
   <div>
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>

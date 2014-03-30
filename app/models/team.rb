@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: groups
+# Table name: teams
 #
 #  id         :integer          not null, primary key
 #  label      :string(255)

@@ -13,6 +13,10 @@
 #  reset_password_token            :string(255)
 #  reset_password_token_expires_at :datetime
 #  reset_password_email_sent_at    :datetime
+#  team_id                         :integer
+#  firstname                       :string(255)
+#  lastname                        :string(255)
+#  admin                           :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -21,6 +25,14 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 3 }
   validates :email, uniqueness: true
 
+  def value_for_indicator(indicator)
+    indicator = Log.where(indicator_id: indicator.id, user_id: id).last
+    if indicator
+      indicator.value
+    else
+      1 # when nothing is set, everything is ok!
+    end
+  end
   def admin?
     admin or id == 1
   end
