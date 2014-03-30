@@ -1,5 +1,7 @@
 h1, h2, p, a, th, td, label, input
-  font-family: $font_text
+  font:
+    family: $font_text
+    size: 14px
   line-height: 160%
   text-decoration: none
   color: black
@@ -37,6 +39,11 @@ body
     form
       label 
         display: block
+        margin-top: 10px
+      .inline-errors
+        color: red
+      input
+        padding: 3px 5px 
     ul.indicators
       li
         background: $color_not_ok
@@ -49,6 +56,7 @@ body
             weight: bold
             size: 18px
     td
+      text-align: left
       &.indicator_value_0
         background: $color_not_ok
       &.indicator_value_1
@@ -64,10 +72,12 @@ body
           span
             display: none
             position: absolute
-            background: white
+            background: $color
             font-size: 10px
             padding: 5px
             line-height: 100%
+            a
+              color: white
           &:hover span
             display: block
   footer
