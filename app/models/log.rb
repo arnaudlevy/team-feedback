@@ -11,4 +11,12 @@
 #
 
 class Log < ActiveRecord::Base
+
+  def self.other_value(value)
+    if value == 0
+      1
+    else
+      0
+    end
+  end
 end

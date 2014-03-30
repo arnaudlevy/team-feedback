@@ -1,11 +1,15 @@
-<h1>Listing users</h1>
+<h1>Users</h1>
+
+<%= link_to 'New User', new_user_path %>
 
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Name</th>
+      <th>Team</th>
+      <% @indicators.all.each do |indicator| %>
+        <th><%= indicator %></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -13,13 +17,13 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user, user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to user.team, user.team %> </td>
+        <% @indicators.all.each do |indicator| %>
+          <td class="indicator_value_<%= user.value_for_indicator(indicator) %>">
+            <%= humanize_log(user.value_for_indicator(indicator)) %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>

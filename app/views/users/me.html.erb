@@ -1,18 +1,16 @@
-<ul>
+<ul class="indicators">
 <% @indicators.each do |indicator| %>
-  <li class="indicator indicator-value-<%= @user.value_for_indicator(indicator) %>">
-    <p class="name"><%= indicator %></p>
-    <% if(@user.value_for_indicator(indicator) == 0) %>
-      <p class="value">not ok</p>
-      <p class="link">
-        <%= link_to 'switch to ok', log_path(indicator_id: indicator.id, value: 1), method: :put %>
-      </p>
-    <% else %>
-      <p class="value">ok</p>
-      <p class="link">
-        <%= link_to 'switch to not ok', log_path(indicator_id: indicator.id, value: 0), method: :put %>
-      </p>
-    <% end %>
+  <% 
+  value = @user.value_for_indicator(indicator)
+  other_value = Log.other_value(value)
+  %>
+  <li class="indicator indicator_value_<%= @user.value_for_indicator(indicator) %>">
+    <a data-method="put" href="<%= log_path(indicator_id: indicator.id, value: other_value) %>" rel="nofollow">
+      <article>
+        <p class="name"><%= indicator %></p>
+        <p class="value"><%= humanize_log(value) %></p>
+      </article>
+    </a>
   </li>
 <% end %>
 </ul>

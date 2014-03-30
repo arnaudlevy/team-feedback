@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_indicators
   skip_before_filter :require_login, only: [:new, :create]
   
+  # TODO lock others if not admin
+
   # GET /users
   # GET /users.json
   def index
@@ -10,12 +13,10 @@ class UsersController < ApplicationController
 
   def me
     @user = current_user
-    @indicators = Indicator.all
   end
 
   def edit_me
     @user = current_user
-    render action: 'edit'
   end
 
   # GET /users/1
@@ -73,12 +74,12 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def set_indicators
+    @indicators = Indicator.all
+    end
     def user_params
       params[:user].permit(:firstname, :lastname, :email, :password, :team_id, :admin)
     end

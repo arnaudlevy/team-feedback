@@ -1,0 +1,77 @@
+h1, h2, p, a, th, td, label, input
+  font-family: $font_text
+  line-height: 160%
+  text-decoration: none
+  color: black
+body
+  text-align: center
+  background: $color
+  header
+    padding: 10px
+    h1
+      padding: 10px 
+      a
+        font-size: 36px
+        color: white
+    nav ul li
+      display: inline
+      margin-right: 20px
+      a 
+        font:
+          weight: bold
+          size: 11px
+        color: white
+        text-transform: uppercase
+  main
+    background: white
+    padding: 20px
+    table
+      margin: 0 auto
+      th, td
+        border: solid 1px #eee
+        padding: 5px
+      th
+        font-weight: bold
+    h1
+      font-size: 24px
+    form
+      label 
+        display: block
+    ul.indicators
+      li
+        background: $color_not_ok
+        padding: 10px
+        margin-bottom: 10px
+        &.indicator_value_1
+          background: $color_ok
+        p.name
+          font:
+            weight: bold
+            size: 18px
+    td
+      &.indicator_value_0
+        background: $color_not_ok
+      &.indicator_value_1
+        background: $color_ok
+    table.teams
+      td 
+        .team_indicator 
+          font:
+            family: $font_title
+            size: 30px
+        ul.indicators li
+          display: inline-block
+          span
+            display: none
+            position: absolute
+            background: white
+            font-size: 10px
+            padding: 5px
+            line-height: 100%
+          &:hover span
+            display: block
+  footer
+    font-size: 10px
+    padding: 20px
+    p
+      color: white

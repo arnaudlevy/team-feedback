@@ -1,6 +1,21 @@
 <h1><%= @user %></h1>
 <p id="notice"><%= notice %></p>
-<p>Group: <%= link_to @user.team, @user.team %></p>
+<p><%= link_to @user.team, @user.team %></p>
+
+<ul class="indicators">
+<% @indicators.each do |indicator| %>
+  <% 
+  value = @user.value_for_indicator(indicator)
+  other_value = Log.other_value(value)
+  %>
+  <li class="indicator indicator_value_<%= @user.value_for_indicator(indicator) %>">
+    <article>
+      <p class="name"><%= indicator %></p>
+      <p class="value"><%= humanize_log(value) %></p>
+    </article>
+  </li>
+<% end %>
+</ul>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>

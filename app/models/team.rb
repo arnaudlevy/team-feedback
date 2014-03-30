@@ -10,7 +10,15 @@
 
 class Team < ActiveRecord::Base
   has_many :users
-
+  def value_for_indicator(indicator)
+    value = 0
+    total = 0
+    users.each do |user|
+      value += user.value_for_indicator(indicator)
+      total += 1
+    end
+    "#{ value }/#{ total }"
+  end
   def to_s
     "#{ label }"
   end

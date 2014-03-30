@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_indicators
 
   # GET /teams
   # GET /teams.json
@@ -62,12 +63,12 @@ class TeamsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_team
       @team = Team.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def set_indicators
+    @indicators = Indicator.all
+    end
     def team_params
       params.require(:team).permit(:label)
     end
