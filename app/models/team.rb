@@ -8,7 +8,7 @@
 #  updated_at :datetime
 #
 
-class Group < ActiveRecord::Base
+class Team < ActiveRecord::Base
   has_many :users
 
   def to_s

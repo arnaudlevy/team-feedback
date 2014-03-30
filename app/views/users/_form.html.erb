@@ -1,4 +1,13 @@
 <%= semantic_form_for @user do |f| %>
-    <%= f.inputs :firstname, :lastname, :email, :password, :group %>
+    <%= f.inputs do %>
+      <%= f.input :firstname %>
+      <%= f.input :lastname %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :team %>
+      <% if current_user and current_user.admin? %>
+      <%= f.input :admin %>
+      <% end %>
+    <% end %>
     <%= f.actions %>
 <% end %>

@@ -17,9 +17,13 @@
 
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
-  belongs_to :group
+  belongs_to :team
   validates :password, length: { minimum: 3 }
   validates :email, uniqueness: true
+
+  def admin?
+    admin or id == 1
+  end
   def to_s
     "#{ firstname } #{ lastname }"
   end
