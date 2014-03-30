@@ -1,5 +1,7 @@
 <h1><%= @team %></h1>
 <p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Destroy', @team, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <ul>
   <% @team.users.each do |user| %>
@@ -7,5 +9,24 @@
   <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Destroy', @team, method: :delete, data: { confirm: 'Are you sure?' } %>
+<ul class="indicators">
+<% @indicators.each do |indicator| %>
+  <% 
+  value = @team.value_for_indicator(indicator)
+  %>
+  <li class="indicator indicator_value_<%= @team.value_for_indicator(indicator) %>">
+    <article>
+      <p class="name"><%= indicator %></p>
+      <p class="value"><%= value %></p>
+      <ul class="indicators">
+        <% @team.users.each do |user| %>
+          <% value = user.value_for_indicator(indicator) %>
+          <li class="indicator_value_<%= value %>">
+            <span class="user"><%= link_to user, user %></span>
+          </li>
+        <% end %>
+      </ul>
+    </article>
+  </li>
+<% end %>
+</ul>

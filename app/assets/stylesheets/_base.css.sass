@@ -43,24 +43,23 @@ body
       .inline-errors
         color: red
       input
-        padding: 3px 5px 
+        padding: 3px 5px
+    .indicator_value, .indicator_value p, .indicator_value a
+      color: white
+    .indicator_value_0
+      background: $color_not_ok
+    .indicator_value_1
+      background: $color_ok
     ul.indicators
       li
-        background: $color_not_ok
         padding: 10px
         margin-bottom: 10px
-        &.indicator_value_1
-          background: $color_ok
         p.name
           font:
             weight: bold
             size: 18px
     td
       text-align: left
-      &.indicator_value_0
-        background: $color_not_ok
-      &.indicator_value_1
-        background: $color_ok
     table.teams
       td 
         .team_indicator 
@@ -69,6 +68,7 @@ body
             size: 30px
         ul.indicators li
           display: inline-block
+          cursor: pointer
           span
             display: none
             position: absolute

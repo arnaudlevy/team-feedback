@@ -27,7 +27,6 @@ class IndicatorsController < ApplicationController
     else
       render action: 'new'
     end
-    end
   end
 
   # PATCH/PUT /indicators/1
