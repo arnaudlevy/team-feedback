@@ -4,6 +4,7 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   def index
     @indicators = Indicator.all
+    @teams = Team.all
   end
 
   # GET /indicators/1

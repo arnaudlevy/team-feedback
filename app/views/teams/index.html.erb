@@ -26,7 +26,7 @@
         </td>
         <% @indicators.all.each do |indicator| %>
           <td>
-            <p class="team_indicator"><%= team.value_for_indicator(indicator) %></p>
+            <p class="team_indicator"><%= team_value(team.value_for_indicator(indicator)) %></p>
             <ul class="indicators">
               <% team.users.each do |user| %>
                 <% value = user.value_for_indicator(indicator) %>

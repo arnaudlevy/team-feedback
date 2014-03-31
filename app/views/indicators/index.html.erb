@@ -1,11 +1,14 @@
 <h1>Indicators</h1>
 
+<%= link_to 'New Indicator', new_indicator_path %>
+
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Name</th>
+      <% @teams.each do |team| %>
+        <th><%= team %></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -13,13 +16,10 @@
     <% @indicators.each do |indicator| %>
       <tr>
         <td><%= link_to indicator, indicator %></td>
-        <td><%= link_to 'Edit', edit_indicator_path(indicator) %></td>
-        <td><%= link_to 'Destroy', indicator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% @teams.each do |team| %>
+          <td><%= team_value(team.value_for_indicator(indicator)) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Indicator', new_indicator_path %>

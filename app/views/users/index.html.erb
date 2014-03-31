@@ -19,7 +19,7 @@
         <td><%= link_to user, user %></td>
         <td><%= link_to user.team, user.team %> </td>
         <% @indicators.all.each do |indicator| %>
-          <td class="indicator_value_<%= user.value_for_indicator(indicator) %>">
+          <td class="indicator_value indicator_value_<%= user.value_for_indicator(indicator) %>">
             <%= humanize_log(user.value_for_indicator(indicator)) %>
           </td>
         <% end %>

@@ -6,4 +6,8 @@ module IndicatorsHelper
       'ok'
     end
   end
+
+  def team_value(value)
+    "#{ (value * 100).round }%"
+  end
 end
