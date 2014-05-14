@@ -8,7 +8,13 @@
     <a data-method="put" href="<%= log_path(indicator_id: indicator.id, value: other_value) %>" rel="nofollow">
       <article>
         <p class="name"><%= indicator %></p>
-        <p class="value"><%= humanize_log(value) %></p>
+        <p class="value">
+          <% if value == 1 %>
+            <%= indicator.label_ok %>
+          <% else %>
+            <%= indicator.label_not_ok %>
+          <% end %>
+        </p>
       </article>
     </a>
   </li>

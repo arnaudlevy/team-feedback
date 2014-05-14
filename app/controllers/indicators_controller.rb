@@ -50,6 +50,6 @@ class IndicatorsController < ApplicationController
       @indicator = Indicator.find(params[:id])
     end
     def indicator_params
-      params.require(:indicator).permit(:label)
+      params.require(:indicator).permit(:label, :label_ok, :label_not_ok)
     end
 end

@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330141957) do
+ActiveRecord::Schema.define(version: 20140514145432) do
 
   create_table "indicators", force: true do |t|
     t.string   "label"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "label_ok"
+    t.string   "label_not_ok"
   end
 
   create_table "logs", force: true do |t|

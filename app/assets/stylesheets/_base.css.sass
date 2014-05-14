@@ -7,25 +7,15 @@ h1, h2, p, a, th, td, label, input
   color: black
 body
   text-align: center
-  background: $color
   header
     padding: 10px
     h1
       padding: 10px 
       a
         font-size: 36px
-        color: white
-    nav ul li
-      display: inline
-      margin-right: 20px
-      a 
-        font:
-          weight: bold
-          size: 11px
-        color: white
-        text-transform: uppercase
+    p
+      font-size: 18px
   main
-    background: white
     padding: 20px
     table
       margin: 0 auto
@@ -36,17 +26,8 @@ body
         font-weight: bold
     h1
       font-size: 24px
-    form
-      label 
-        display: block
-        margin-top: 10px
-      .inline-errors
-        color: red
-      input
-        padding: 3px 5px
     .indicator_value, .indicator_value p, .indicator_value a
       font-weight: bold
-      color: white
     .indicator_value_0
       background: $color_not_ok
     .indicator_value_1
@@ -73,7 +54,6 @@ body
           span
             display: none
             position: absolute
-            background: $color
             font-size: 10px
             padding: 5px
             line-height: 100%
@@ -82,7 +62,14 @@ body
           &:hover span
             display: block
   footer
-    font-size: 10px
     padding: 20px
-    p
-      color: white
+    nav ul li
+      display: inline
+      margin-right: 10px
+      a 
+        font:
+          weight: bold
+          size: 11px
+        text-transform: uppercase
+    p, p a
+      font-size: 10px
