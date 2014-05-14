@@ -10,6 +10,7 @@ gem 'turbolinks'                  # Turbolinks                https://github.com
 gem 'jbuilder', '~> 1.2'          # Build JSON APIs           https://github.com/rails/jbuilder
 gem 'sorcery'                     # Authentication            https://github.com/NoamB/sorcery
 gem 'formtastic'                  # Forms                     https://github.com/justinfrench/formtastic
+gem 'rails_12factor'              # Environments              https://github.com/heroku/rails_12factor
 
 group :development do
   gem 'sqlite3'                   # Development database      https://github.com/sparklemotion/sqlite3-ruby
