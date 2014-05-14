@@ -1,12 +1,12 @@
-<h1>Teams</h1>
+<h1>Equipes</h1>
 
-<%= link_to 'New Team', new_team_path %>
+<%= link_to 'Créer une équipe', new_team_path %>
 
 <table class="teams">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Members</th>
+      <th>Nom</th>
+      <th>Membres</th>
       <% @indicators.all.each do |indicator| %>
         <th><%= indicator %></th>
       <% end %>
