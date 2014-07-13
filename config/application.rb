@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-module TeamFeedback
+module TeamPulsation
   class Application < Rails::Application
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     # Settings in config/environments/* take precedence over those specified here.
@@ -19,6 +19,7 @@ module TeamFeedback
     config.assets.enabled = true
     config.assets.compile = true
     config.assets.initialize_on_precompile = false
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]

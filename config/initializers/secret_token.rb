@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-TeamFeedback::Application.config.secret_key_base = '86d753909a2088c6e8be78f7d1ab1fdf7524af5de0d88a30a8f3a632588627cafe49667427534b3bc486b05f2939a0e32991270b52949ce77a37d6fd07227fdd'
+TeamPulsation::Application.config.secret_key_base = '86d753909a2088c6e8be78f7d1ab1fdf7524af5de0d88a30a8f3a632588627cafe49667427534b3bc486b05f2939a0e32991270b52949ce77a37d6fd07227fdd'

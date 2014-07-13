@@ -1,4 +1,4 @@
-TeamFeedback::Application.routes.draw do
+TeamPulsation::Application.routes.draw do
   root 'users#me'
   get 'login' => 'user_sessions#new', as: :login
   post 'logout' => 'user_sessions#destroy', as: :logout

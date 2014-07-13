@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-TeamFeedback::Application.load_tasks
+TeamPulsation::Application.load_tasks
