@@ -1,26 +1,87 @@
+$color_ok: #ffffff
+$color_not_ok: #274856
+
 h1, h2, p, a, th, td, label, input
   font:
-    family: $font_text
+    family: "bree", sans-serif
+    weight: 200
     size: 14px
   line-height: 160%
   text-decoration: none
   color: black
 body
-  #logo
-    width: 178px
-  text-align: center
   header
-    padding: 10px
-    h1
-      padding: 10px 
-      a
-        font-size: 36px
-    p
-      font-size: 18px
+    padding: 20px 20px 10px 20px
+    background: $color_not_ok
+    #logo a img
+      width: 255px
+    #nav-toggle
+      position: absolute
+      right: 20px
+      top: 25px
+      cursor: pointer
+      padding: 10px 35px 16px 0px
+      span
+        cursor: pointer
+        border-radius: 1px
+        height: 4px
+        width: 30px
+        background: white
+        position: absolute
+        display: block
+        content: ''
+        &:before, &:after
+          cursor: pointer
+          border-radius: 1px
+          height: 4px
+          width: 30px
+          background: white
+          position: absolute
+          display: block
+          content: ''
+        &:before
+          top: -10px
+        &:after
+          bottom: -10px
+        transition: all 500ms ease-in-out
+        &:before, &:after
+          transition: all 500ms ease-in-out
+      &.active span
+        background-color: transparent
+        &:before, &:after
+          top: 0
+        &:before
+          transform: rotate(45deg)
+        &:after
+          transform: translateY(-10px) rotate(-45deg)
+          top: 10px
+    nav
+      position: absolute
+      left: 0
+      right: 0
+      padding-bottom: 20px
+      background: $color_not_ok
+      visibility: hidden
+      opacity: 0
+      transition: opacity 500ms ease-in-out
+      &.active
+        visibility: visible
+        opacity: 1
+      ul li
+        padding: 10px 30px
+        text-align: right
+        a
+          color: white 
+          font:
+            style: italic
+            size: 26px
+            weight: 200
+          &:hover
+            transition: opacity 200ms
+            opacity: 0.8
   main
     padding: 20px
     table
-      margin: 0 auto
       th, td
         border: solid 1px #eee
         padding: 5px
@@ -28,27 +89,44 @@ body
         font-weight: bold
     h1
       font-size: 24px
-    .indicator_value, .indicator_value p, .indicator_value a
-      font-weight: bold
-    .indicator_value_0
-      background: $color_not_ok
-    .indicator_value_1
-      background: $color_ok
     ul.indicators
+      margin-top: 30px
       li
-        padding: 10px
-        margin-bottom: 10px
+        margin: 0 -20px 
+        padding: 10px 20px
+        border-top: 1px dotted $color_not_ok 
+        border-bottom: 1px dotted $color_not_ok 
+        margin-top: -1px
+        &.indicator_value_0
+          background: $color_not_ok
+          p
+            color: white
+        &.indicator_value_1
+          background: $color_ok
+          p
+            color: $color_not_ok
         p.name
           font:
-            weight: bold
             size: 18px
+            weight: 600
+          letter-spacing: 2px
+          text:
+            transform: uppercase
+        p.value
+          font:
+            size: 24px
+            weight: 200
+            style: italic
+          text:
+            align: right
     td
       text-align: left
     table.teams
       td 
         .team_indicator 
           font:
-            family: $font_title
+            family: "bree", sans-serif
+            weight: 200
             size: 30px
         ul.indicators li
           display: inline-block
@@ -64,14 +142,27 @@ body
           &:hover span
             display: block
   footer
+    margin-top: 80px
     padding: 20px
     nav ul li
       display: inline
       margin-right: 10px
       a 
         font:
-          weight: bold
           size: 11px
         text-transform: uppercase
     p, p a
       font-size: 10px
+form
+  label 
+    display: block
+    margin-top: 10px
+  .inline-errors
+    color: $color_not_ok
+  input, select
+    border: none
+    background: #eee
+    padding: 6px 10px 
+    font-size: 16px
+    margin-bottom: 20px
+ 

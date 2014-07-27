@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>team pulsation</title>
+  <title>Team Pulsation</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="//use.typekit.net/suc6blh.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <%= favicon_link_tag asset_path('icons/favicon.ico') %>
+  <%= favicon_link_tag asset_path('icons/apple-touch-icon.png'), rel: 'apple-touch-icon', type: 'image/png' %>
+  <%= favicon_link_tag asset_path('icons/apple-touch-icon-57x57.png'), rel: 'apple-touch-icon', type: 'image/png', sizes: '57x57' %>
+  <%= favicon_link_tag asset_path('icons/apple-touch-icon-72x72.png'), rel: 'apple-touch-icon', type: 'image/png', sizes: '72x72' %>
+  <%= favicon_link_tag asset_path('icons/apple-touch-icon-76x76.png'), rel: 'apple-touch-icon', type: 'image/png', sizes: '76x76' %>
+  <%= favicon_link_tag asset_path('icons/apple-touch-icon-114x114.png'), rel: 'apple-touch-icon', type: 'image/png', sizes: '114x114' %>
+  <%= favicon_link_tag asset_path('icons/apple-touch-icon-120x120.png'), rel: 'apple-touch-icon', type: 'image/png', sizes: '120x120' %>
+  <%= favicon_link_tag asset_path('icons/apple-touch-icon-144x144.png'), rel: 'apple-touch-icon', type: 'image/png', sizes: '144x144' %>
+  <%= favicon_link_tag asset_path('icons/apple-touch-icon-152x152.png'), rel: 'apple-touch-icon', type: 'image/png', sizes: '152x152' %>
 </head>
 <body>
   <header>
-    <h1><%= link_to "Bonjour #{current_user.firstname if current_user}", root_path %></h1>
+    <div id="logo"><%= link_to image_tag('logo.png'), root_path %></div>
     <% if current_user %>
-      <p>Comment se passe le projet ?</p>
+      <a id="nav-toggle" href="#"><span></span></a>
+      <nav>
+        <ul>
+          <% if current_user.admin?  %>
+            <li><%= link_to 'Users', users_path %></li>
+            <li><%= link_to 'Teams', teams_path %></li>
+            <li><%= link_to 'Indicators', indicators_path %></li>
+          <% end %>
+          <li><%= link_to 'Mon compte', :edit_me %></li>
+          <li><%= link_to 'Quitter', :logout, method: :post, data: { confirm: 'Are you sure?' } %></li>
+        </ul>
+      </nav>
     <% end %>
   </header>
   <main>
     <%= yield %>
   </main>
   <footer>
-    <h1><a href="https://github.com/arnaudlevy/team-feedback"><%= image_tag asset_path('logo.png'), id: 'logo' %></a></h1>
-    <% if current_user %>
-    <nav>
-      <ul>
-        <% if current_user.admin?  %>
-          <li><%= link_to 'Users', users_path %></li>
-          <li><%= link_to 'Teams', teams_path %></li>
-          <li><%= link_to 'Indicators', indicators_path %></li>
-        <% end %>
-        <li><%= link_to 'Mon compte', :edit_me %></li>
-        <li><%= link_to 'Quitter', :logout, method: :post, data: { confirm: 'Are you sure?' } %></li>
-      </ul>
-    </nav>
-    <% end %>
-    <div>
-      <p id="notice"><%= flash[:notice] %></p>
-      <p id="alert"><%= flash[:alert] %></p>
-    </div>
+    <p>
+      Team Pulsation was created by <a href="http://arnaudlevy.com" target="_blank">Arnaud Levy</a><br/>
+      Source code is available on <a href="https://github.com/arnaudlevy/teampulsation" target="_blank">Github</a>
+    </p>
   </footer>
 </body>
 </html>

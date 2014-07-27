@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+//= require_self
+
+$(function() {
+    $('#nav-toggle').on('click', function(event) {
+        event.preventDefault();
+        $('#nav-toggle').toggleClass('active');
+        $('nav').toggleClass('active');
+      });
+});

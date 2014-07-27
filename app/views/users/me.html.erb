@@ -1,3 +1,6 @@
+<h1><%= "Bonjour #{current_user.firstname if current_user}," %></h1>
+<p>Comment se passe le projet ?</p>
+
 <ul class="indicators">
 <% @indicators.each do |indicator| %>
   <% 
@@ -8,13 +11,7 @@
     <a data-method="put" href="<%= log_path(indicator_id: indicator.id, value: other_value) %>" rel="nofollow">
       <article>
         <p class="name"><%= indicator %></p>
-        <p class="value">
-          <% if value == 1 %>
-            <%= indicator.label_ok %>
-          <% else %>
-            <%= indicator.label_not_ok %>
-          <% end %>
-        </p>
+        <p class="value"><%= indicator.label_for_user(@user) %></p>
       </article>
     </a>
   </li>

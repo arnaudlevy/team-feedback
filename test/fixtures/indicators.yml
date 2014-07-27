@@ -2,10 +2,12 @@
 #
 # Table name: indicators
 #
-#  id         :integer          not null, primary key
-#  label      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id           :integer          not null, primary key
+#  label        :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  label_ok     :string(255)
+#  label_not_ok :string(255)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
