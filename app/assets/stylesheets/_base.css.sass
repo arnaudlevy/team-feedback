@@ -30,6 +30,7 @@ body
         position: absolute
         display: block
         content: ''
+        transition: all 500ms ease-in-out
         &:before, &:after
           cursor: pointer
           border-radius: 1px
@@ -43,7 +44,6 @@ body
           top: -10px
         &:after
           bottom: -10px
-        transition: all 500ms ease-in-out
         &:before, &:after
           transition: all 500ms ease-in-out
       &.active span
@@ -55,6 +55,8 @@ body
           -webkit-transform: rotateZ(45deg)
           transform: rotateZ(45deg)
         &:after
+          -moz-transform: translateY(-10px) rotateZ(-45deg)
+          -webkit-transform: translateY(-10px) rotateZ(-45deg)
           transform: translateY(-10px) rotateZ(-45deg)
           top: 10px
     nav
