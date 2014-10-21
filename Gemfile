@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.1.2'
 
 gem 'rails', '4.0.3'              # Rails                     
 gem 'sass-rails', '~> 4.0.0'      # Use SCSS for stylesheets  
 gem 'uglifier', '>= 1.3.0'        # JS Compressor             
-gem 'coffee-rails', '~> 4.0.0'    # CoffeeScript              
 gem 'jquery-rails'                # jQuery                    
-gem 'sorcery'                     # Authentication            https://github.com/NoamB/sorcery
+gem 'devise'                      # Authentication            https://github.com/plataformatec/devise
 gem 'formtastic'                  # Forms                     https://github.com/justinfrench/formtastic
 gem 'rails_12factor'              # Environments              https://github.com/heroku/rails_12factor
 gem 'unicorn'
