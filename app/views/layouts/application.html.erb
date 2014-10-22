@@ -24,7 +24,7 @@
 <body>
   <header>
     <div id="logo"><%= link_to image_tag('logo.png'), root_path %></div>
-    <% if current_user %>
+    <% if user_signed_in? %>
       <a id="nav-toggle" href="#"><span></span></a>
       <nav>
         <ul>
@@ -34,7 +34,7 @@
             <li><%= link_to 'Indicators', indicators_path %></li>
           <% end %>
           <li><%= link_to 'Mon compte', :edit_me %></li>
-          <li><%= link_to 'Quitter', :logout, method: :post, data: { confirm: 'Are you sure?' } %></li>
+          <li><%= link_to 'Quitter', :destroy_user_session, method: :delete, data: { confirm: 'Are you sure?' } %></li>
         </ul>
       </nav>
     <% end %>
