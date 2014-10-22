@@ -1,5 +1,6 @@
 class WorkshopsController < ApplicationController
   before_action :set_workshop, only: [:show, :edit, :update, :destroy]
+  respond_to :html
 
   def index
     @workshops = Workshop.all
