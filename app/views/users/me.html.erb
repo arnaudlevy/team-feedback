@@ -1,19 +1,21 @@
 <h1><%= "Bonjour #{current_user.firstname if current_user}," %></h1>
 <p>Comment se passe le projet ?</p>
 
-<ul class="indicators">
-<% @indicators.each do |indicator| %>
-  <% 
-  value = @user.value_for_indicator(indicator)
-  other_value = Log.other_value(value)
-  %>
-  <li class="indicator indicator_value indicator_value_<%= @user.value_for_indicator(indicator) %>">
-    <a data-method="put" href="<%= log_path(indicator_id: indicator.id, value: other_value) %>" rel="nofollow">
-      <article>
-        <p class="name"><%= indicator %></p>
-        <p class="value"><%= indicator.label_for_user(@user) %></p>
-      </article>
-    </a>
-  </li>
+<% if @indicators.any? %>
+  <ul class="indicators">
+  <% @indicators.each do |indicator| %>
+    <% 
+    value = @user.value_for_indicator(indicator)
+    other_value = Log.other_value(value)
+    %>
+    <li class="indicator indicator_value indicator_value_<%= @user.value_for_indicator(indicator) %>">
+      <a data-method="put" href="<%= log_path(indicator_id: indicator.id, value: other_value) %>" rel="nofollow">
+        <article>
+          <p class="name"><%= indicator %></p>
+          <p class="value"><%= indicator.label_for_user(@user) %></p>
+        </article>
+      </a>
+    </li>
+  <% end %>
+  </ul>
 <% end %>
-</ul>
