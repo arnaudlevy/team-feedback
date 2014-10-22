@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def me
-    #@user = current_user
+    @user = current_user
   end
 
   def edit_me
