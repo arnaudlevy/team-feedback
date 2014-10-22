@@ -20,10 +20,15 @@
 #
 
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   belongs_to :team
   validates :password, length: { minimum: 3 }
   validates :email, uniqueness: true
+
+  devise :database_authenticatable, :registerable, :recoverable
 
   def value_for_indicator(indicator)
     indicator = Log.where(indicator_id: indicator.id, user_id: id).last

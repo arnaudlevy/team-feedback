@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :set_indicators
-  skip_before_filter :require_login, only: [:new, :create]
   
   # TODO lock others if not admin
 
@@ -11,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def me
-    @user = current_user
+    #@user = current_user
   end
 
   def edit_me
